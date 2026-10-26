@@ -1,0 +1,50 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Sun Oct 18 09:35:42 2026
+| Host         : teptop running 64-bit Ubuntu 26.04 LTS
+| Command      : report_cdc -details -file build/cdc.rpt
+| Design       : cmod_a7_guitar_top
+| Device       : 7a35t-cpg236
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CDC Report
+
+ID      Severity  Count  Description
+------  --------  -----  -------------------------------------------------------
+CDC-3   Info          2  1-bit synchronized with ASYNC_REG property
+CDC-9   Info          1  Asynchronous reset synchronized with ASYNC_REG property
+CDC-15  Warning      14  Clock enable controlled CDC structure detected
+
+Source Clock: raw104
+Destination Clock: raw100
+CDC Type: Safely Timed
+
+Row  ID      Severity  Description                                     Depth  Exception                Source (From)                    Destination (To)
+---  ------  --------  ----------------------------------------------  -----  -----------------------  -------------------------------  ---------------------------
+  1  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[2]/C   adc_input/latest_reg[2]/D
+  2  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[3]/C   adc_input/latest_reg[3]/D
+  3  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[4]/C   adc_input/latest_reg[4]/D
+  4  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[5]/C   adc_input/latest_reg[5]/D
+  5  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[6]/C   adc_input/latest_reg[6]/D
+  6  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[7]/C   adc_input/latest_reg[7]/D
+  7  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[8]/C   adc_input/latest_reg[8]/D
+  8  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[9]/C   adc_input/latest_reg[9]/D
+  9  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[10]/C  adc_input/latest_reg[10]/D
+ 10  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[11]/C  adc_input/latest_reg[11]/D
+ 11  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[12]/C  adc_input/latest_reg[12]/D
+ 12  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[13]/C  adc_input/latest_reg[13]/D
+ 13  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[14]/C  adc_input/latest_reg[14]/D
+ 14  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  adc_input/cdc_payload_reg[15]/C  adc_input/latest_reg[15]/D
+ 15  CDC-3   Info      1-bit synchronized with ASYNC_REG property          3  False Path               adc_input/req_reg/C              adc_input/req_sync_reg[0]/D
+
+Source Clock: raw100
+Destination Clock: raw104
+CDC Type: User Ignored
+
+Row  ID     Severity  Description                                              Depth  Exception   Source (From)        Destination (To)
+---  -----  --------  -------------------------------------------------------  -----  ----------  -------------------  ---------------------------
+  1  CDC-3  Info      1-bit synchronized with ASYNC_REG property                   3  False Path  adc_input/ack_reg/C  adc_input/ack_sync_reg[0]/D
+  2  CDC-9  Info      Asynchronous reset synchronized with ASYNC_REG property      3  False Path  rst_reg/C            xr_pipe_reg[0]/PRE

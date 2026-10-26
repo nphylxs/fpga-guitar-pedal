@@ -1,0 +1,320 @@
+module fx_chorus_mod #(parameter logic [31:0] LFO_STEP=32'd61573) (
+  input logic clk, rst, in_valid, enable,
+  input logic signed [15:0] audio_in,
+  input logic [7:0] depth,
+  output logic signed [15:0] audio_out,
+  output logic out_valid
+);
+  import audio_math_pkg::*;
+  function automatic logic signed [15:0] sine_lut(input logic [7:0] addr);
+    case(addr)
+      8'd0: sine_lut = 16'sh0000;
+      8'd1: sine_lut = 16'sh0324;
+      8'd2: sine_lut = 16'sh0648;
+      8'd3: sine_lut = 16'sh096a;
+      8'd4: sine_lut = 16'sh0c8c;
+      8'd5: sine_lut = 16'sh0fab;
+      8'd6: sine_lut = 16'sh12c8;
+      8'd7: sine_lut = 16'sh15e2;
+      8'd8: sine_lut = 16'sh18f9;
+      8'd9: sine_lut = 16'sh1c0b;
+      8'd10: sine_lut = 16'sh1f1a;
+      8'd11: sine_lut = 16'sh2223;
+      8'd12: sine_lut = 16'sh2528;
+      8'd13: sine_lut = 16'sh2826;
+      8'd14: sine_lut = 16'sh2b1f;
+      8'd15: sine_lut = 16'sh2e11;
+      8'd16: sine_lut = 16'sh30fb;
+      8'd17: sine_lut = 16'sh33df;
+      8'd18: sine_lut = 16'sh36ba;
+      8'd19: sine_lut = 16'sh398c;
+      8'd20: sine_lut = 16'sh3c56;
+      8'd21: sine_lut = 16'sh3f17;
+      8'd22: sine_lut = 16'sh41ce;
+      8'd23: sine_lut = 16'sh447a;
+      8'd24: sine_lut = 16'sh471c;
+      8'd25: sine_lut = 16'sh49b4;
+      8'd26: sine_lut = 16'sh4c3f;
+      8'd27: sine_lut = 16'sh4ebf;
+      8'd28: sine_lut = 16'sh5133;
+      8'd29: sine_lut = 16'sh539b;
+      8'd30: sine_lut = 16'sh55f5;
+      8'd31: sine_lut = 16'sh5842;
+      8'd32: sine_lut = 16'sh5a82;
+      8'd33: sine_lut = 16'sh5cb3;
+      8'd34: sine_lut = 16'sh5ed7;
+      8'd35: sine_lut = 16'sh60eb;
+      8'd36: sine_lut = 16'sh62f1;
+      8'd37: sine_lut = 16'sh64e8;
+      8'd38: sine_lut = 16'sh66cf;
+      8'd39: sine_lut = 16'sh68a6;
+      8'd40: sine_lut = 16'sh6a6d;
+      8'd41: sine_lut = 16'sh6c23;
+      8'd42: sine_lut = 16'sh6dc9;
+      8'd43: sine_lut = 16'sh6f5e;
+      8'd44: sine_lut = 16'sh70e2;
+      8'd45: sine_lut = 16'sh7254;
+      8'd46: sine_lut = 16'sh73b5;
+      8'd47: sine_lut = 16'sh7504;
+      8'd48: sine_lut = 16'sh7641;
+      8'd49: sine_lut = 16'sh776b;
+      8'd50: sine_lut = 16'sh7884;
+      8'd51: sine_lut = 16'sh7989;
+      8'd52: sine_lut = 16'sh7a7c;
+      8'd53: sine_lut = 16'sh7b5c;
+      8'd54: sine_lut = 16'sh7c29;
+      8'd55: sine_lut = 16'sh7ce3;
+      8'd56: sine_lut = 16'sh7d89;
+      8'd57: sine_lut = 16'sh7e1d;
+      8'd58: sine_lut = 16'sh7e9c;
+      8'd59: sine_lut = 16'sh7f09;
+      8'd60: sine_lut = 16'sh7f61;
+      8'd61: sine_lut = 16'sh7fa6;
+      8'd62: sine_lut = 16'sh7fd8;
+      8'd63: sine_lut = 16'sh7ff5;
+      8'd64: sine_lut = 16'sh7fff;
+      8'd65: sine_lut = 16'sh7ff5;
+      8'd66: sine_lut = 16'sh7fd8;
+      8'd67: sine_lut = 16'sh7fa6;
+      8'd68: sine_lut = 16'sh7f61;
+      8'd69: sine_lut = 16'sh7f09;
+      8'd70: sine_lut = 16'sh7e9c;
+      8'd71: sine_lut = 16'sh7e1d;
+      8'd72: sine_lut = 16'sh7d89;
+      8'd73: sine_lut = 16'sh7ce3;
+      8'd74: sine_lut = 16'sh7c29;
+      8'd75: sine_lut = 16'sh7b5c;
+      8'd76: sine_lut = 16'sh7a7c;
+      8'd77: sine_lut = 16'sh7989;
+      8'd78: sine_lut = 16'sh7884;
+      8'd79: sine_lut = 16'sh776b;
+      8'd80: sine_lut = 16'sh7641;
+      8'd81: sine_lut = 16'sh7504;
+      8'd82: sine_lut = 16'sh73b5;
+      8'd83: sine_lut = 16'sh7254;
+      8'd84: sine_lut = 16'sh70e2;
+      8'd85: sine_lut = 16'sh6f5e;
+      8'd86: sine_lut = 16'sh6dc9;
+      8'd87: sine_lut = 16'sh6c23;
+      8'd88: sine_lut = 16'sh6a6d;
+      8'd89: sine_lut = 16'sh68a6;
+      8'd90: sine_lut = 16'sh66cf;
+      8'd91: sine_lut = 16'sh64e8;
+      8'd92: sine_lut = 16'sh62f1;
+      8'd93: sine_lut = 16'sh60eb;
+      8'd94: sine_lut = 16'sh5ed7;
+      8'd95: sine_lut = 16'sh5cb3;
+      8'd96: sine_lut = 16'sh5a82;
+      8'd97: sine_lut = 16'sh5842;
+      8'd98: sine_lut = 16'sh55f5;
+      8'd99: sine_lut = 16'sh539b;
+      8'd100: sine_lut = 16'sh5133;
+      8'd101: sine_lut = 16'sh4ebf;
+      8'd102: sine_lut = 16'sh4c3f;
+      8'd103: sine_lut = 16'sh49b4;
+      8'd104: sine_lut = 16'sh471c;
+      8'd105: sine_lut = 16'sh447a;
+      8'd106: sine_lut = 16'sh41ce;
+      8'd107: sine_lut = 16'sh3f17;
+      8'd108: sine_lut = 16'sh3c56;
+      8'd109: sine_lut = 16'sh398c;
+      8'd110: sine_lut = 16'sh36ba;
+      8'd111: sine_lut = 16'sh33df;
+      8'd112: sine_lut = 16'sh30fb;
+      8'd113: sine_lut = 16'sh2e11;
+      8'd114: sine_lut = 16'sh2b1f;
+      8'd115: sine_lut = 16'sh2826;
+      8'd116: sine_lut = 16'sh2528;
+      8'd117: sine_lut = 16'sh2223;
+      8'd118: sine_lut = 16'sh1f1a;
+      8'd119: sine_lut = 16'sh1c0b;
+      8'd120: sine_lut = 16'sh18f9;
+      8'd121: sine_lut = 16'sh15e2;
+      8'd122: sine_lut = 16'sh12c8;
+      8'd123: sine_lut = 16'sh0fab;
+      8'd124: sine_lut = 16'sh0c8c;
+      8'd125: sine_lut = 16'sh096a;
+      8'd126: sine_lut = 16'sh0648;
+      8'd127: sine_lut = 16'sh0324;
+      8'd128: sine_lut = 16'sh0000;
+      8'd129: sine_lut = 16'shfcdc;
+      8'd130: sine_lut = 16'shf9b8;
+      8'd131: sine_lut = 16'shf696;
+      8'd132: sine_lut = 16'shf374;
+      8'd133: sine_lut = 16'shf055;
+      8'd134: sine_lut = 16'shed38;
+      8'd135: sine_lut = 16'shea1e;
+      8'd136: sine_lut = 16'she707;
+      8'd137: sine_lut = 16'she3f5;
+      8'd138: sine_lut = 16'she0e6;
+      8'd139: sine_lut = 16'shdddd;
+      8'd140: sine_lut = 16'shdad8;
+      8'd141: sine_lut = 16'shd7da;
+      8'd142: sine_lut = 16'shd4e1;
+      8'd143: sine_lut = 16'shd1ef;
+      8'd144: sine_lut = 16'shcf05;
+      8'd145: sine_lut = 16'shcc21;
+      8'd146: sine_lut = 16'shc946;
+      8'd147: sine_lut = 16'shc674;
+      8'd148: sine_lut = 16'shc3aa;
+      8'd149: sine_lut = 16'shc0e9;
+      8'd150: sine_lut = 16'shbe32;
+      8'd151: sine_lut = 16'shbb86;
+      8'd152: sine_lut = 16'shb8e4;
+      8'd153: sine_lut = 16'shb64c;
+      8'd154: sine_lut = 16'shb3c1;
+      8'd155: sine_lut = 16'shb141;
+      8'd156: sine_lut = 16'shaecd;
+      8'd157: sine_lut = 16'shac65;
+      8'd158: sine_lut = 16'shaa0b;
+      8'd159: sine_lut = 16'sha7be;
+      8'd160: sine_lut = 16'sha57e;
+      8'd161: sine_lut = 16'sha34d;
+      8'd162: sine_lut = 16'sha129;
+      8'd163: sine_lut = 16'sh9f15;
+      8'd164: sine_lut = 16'sh9d0f;
+      8'd165: sine_lut = 16'sh9b18;
+      8'd166: sine_lut = 16'sh9931;
+      8'd167: sine_lut = 16'sh975a;
+      8'd168: sine_lut = 16'sh9593;
+      8'd169: sine_lut = 16'sh93dd;
+      8'd170: sine_lut = 16'sh9237;
+      8'd171: sine_lut = 16'sh90a2;
+      8'd172: sine_lut = 16'sh8f1e;
+      8'd173: sine_lut = 16'sh8dac;
+      8'd174: sine_lut = 16'sh8c4b;
+      8'd175: sine_lut = 16'sh8afc;
+      8'd176: sine_lut = 16'sh89bf;
+      8'd177: sine_lut = 16'sh8895;
+      8'd178: sine_lut = 16'sh877c;
+      8'd179: sine_lut = 16'sh8677;
+      8'd180: sine_lut = 16'sh8584;
+      8'd181: sine_lut = 16'sh84a4;
+      8'd182: sine_lut = 16'sh83d7;
+      8'd183: sine_lut = 16'sh831d;
+      8'd184: sine_lut = 16'sh8277;
+      8'd185: sine_lut = 16'sh81e3;
+      8'd186: sine_lut = 16'sh8164;
+      8'd187: sine_lut = 16'sh80f7;
+      8'd188: sine_lut = 16'sh809f;
+      8'd189: sine_lut = 16'sh805a;
+      8'd190: sine_lut = 16'sh8028;
+      8'd191: sine_lut = 16'sh800b;
+      8'd192: sine_lut = 16'sh8001;
+      8'd193: sine_lut = 16'sh800b;
+      8'd194: sine_lut = 16'sh8028;
+      8'd195: sine_lut = 16'sh805a;
+      8'd196: sine_lut = 16'sh809f;
+      8'd197: sine_lut = 16'sh80f7;
+      8'd198: sine_lut = 16'sh8164;
+      8'd199: sine_lut = 16'sh81e3;
+      8'd200: sine_lut = 16'sh8277;
+      8'd201: sine_lut = 16'sh831d;
+      8'd202: sine_lut = 16'sh83d7;
+      8'd203: sine_lut = 16'sh84a4;
+      8'd204: sine_lut = 16'sh8584;
+      8'd205: sine_lut = 16'sh8677;
+      8'd206: sine_lut = 16'sh877c;
+      8'd207: sine_lut = 16'sh8895;
+      8'd208: sine_lut = 16'sh89bf;
+      8'd209: sine_lut = 16'sh8afc;
+      8'd210: sine_lut = 16'sh8c4b;
+      8'd211: sine_lut = 16'sh8dac;
+      8'd212: sine_lut = 16'sh8f1e;
+      8'd213: sine_lut = 16'sh90a2;
+      8'd214: sine_lut = 16'sh9237;
+      8'd215: sine_lut = 16'sh93dd;
+      8'd216: sine_lut = 16'sh9593;
+      8'd217: sine_lut = 16'sh975a;
+      8'd218: sine_lut = 16'sh9931;
+      8'd219: sine_lut = 16'sh9b18;
+      8'd220: sine_lut = 16'sh9d0f;
+      8'd221: sine_lut = 16'sh9f15;
+      8'd222: sine_lut = 16'sha129;
+      8'd223: sine_lut = 16'sha34d;
+      8'd224: sine_lut = 16'sha57e;
+      8'd225: sine_lut = 16'sha7be;
+      8'd226: sine_lut = 16'shaa0b;
+      8'd227: sine_lut = 16'shac65;
+      8'd228: sine_lut = 16'shaecd;
+      8'd229: sine_lut = 16'shb141;
+      8'd230: sine_lut = 16'shb3c1;
+      8'd231: sine_lut = 16'shb64c;
+      8'd232: sine_lut = 16'shb8e4;
+      8'd233: sine_lut = 16'shbb86;
+      8'd234: sine_lut = 16'shbe32;
+      8'd235: sine_lut = 16'shc0e9;
+      8'd236: sine_lut = 16'shc3aa;
+      8'd237: sine_lut = 16'shc674;
+      8'd238: sine_lut = 16'shc946;
+      8'd239: sine_lut = 16'shcc21;
+      8'd240: sine_lut = 16'shcf05;
+      8'd241: sine_lut = 16'shd1ef;
+      8'd242: sine_lut = 16'shd4e1;
+      8'd243: sine_lut = 16'shd7da;
+      8'd244: sine_lut = 16'shdad8;
+      8'd245: sine_lut = 16'shdddd;
+      8'd246: sine_lut = 16'she0e6;
+      8'd247: sine_lut = 16'she3f5;
+      8'd248: sine_lut = 16'she707;
+      8'd249: sine_lut = 16'shea1e;
+      8'd250: sine_lut = 16'shed38;
+      8'd251: sine_lut = 16'shf055;
+      8'd252: sine_lut = 16'shf374;
+      8'd253: sine_lut = 16'shf696;
+      8'd254: sine_lut = 16'shf9b8;
+      8'd255: sine_lut = 16'shfcdc;
+    endcase
+  endfunction
+  (* ram_style="block" *) logic signed [15:0] mem [0:2047];
+  logic [10:0] wr, read_addr, delay_int;
+  logic [11:0] filled;
+  logic signed [15:0] rd, near_sample, far_sample, dry;
+  logic [31:0] phase;
+  logic signed [25:0] modulation;
+  logic signed [31:0] delay_q8;
+  logic [7:0] fraction;
+  logic [3:0] state;
+  logic active;
+  logic signed [16:0] difference;
+  logic signed [25:0] interp_product;
+  logic signed [47:0] wet, mix;
+  assign delay_q8=32'sd196608+(32'(modulation) >>> 7);
+  assign difference={far_sample[15],far_sample}-{near_sample[15],near_sample};
+  assign wet=48'(near_sample)+(48'(interp_product) >>> 8);
+  assign mix=(48'(dry)+wet) >>> 1;
+  // Single synchronous read port and single write port, no array reset.
+  always_ff @(posedge clk) begin
+    if(state==2 || state==3) rd<=mem[read_addr];
+    if(!rst && state==6) mem[wr]<=dry;
+  end
+  always_ff @(posedge clk) begin
+    if(rst) begin
+      state<=0; wr<=0; filled<=0; phase<=0; audio_out<=0; out_valid<=0;
+      active<=0; dry<=0; modulation<=0; read_addr<=0; delay_int<=0;
+      fraction<=0; near_sample<=0; far_sample<=0; interp_product<=0;
+    end else begin
+      out_valid<=0;
+      case(state)
+        0: if(in_valid) begin
+          dry<=audio_in; active<=enable;
+          modulation<=sine_lut(phase[31:24])*$signed({1'b0,depth,1'b0});
+          phase<=phase+LFO_STEP; state<=1; // approximately 0.7 Hz
+        end
+        1: begin
+          delay_int<=delay_q8[18:8]; fraction<=delay_q8[7:0];
+          read_addr<=wr-delay_q8[18:8]; state<=2;
+        end
+        2: begin read_addr<=read_addr-1'b1; state<=3; end
+        3: begin near_sample<=({1'b0,delay_int}<=filled)?rd:16'sd0; state<=4; end
+        4: begin far_sample<=({1'b0,delay_int}+12'd1<=filled)?rd:16'sd0; state<=5; end
+        5: begin interp_product<=difference*$signed({1'b0,fraction}); state<=6; end
+        6: begin
+          audio_out<=active?sat16(mix):dry; out_valid<=1;
+          wr<=wr+1'b1; if(filled<2048) filled<=filled+1'b1; state<=0;
+        end
+        default: state<=0;
+      endcase
+    end
+  end
+endmodule

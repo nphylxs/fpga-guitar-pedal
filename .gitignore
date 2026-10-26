@@ -1,0 +1,16 @@
+build/
+obj_dir/
+*.jou
+*.log
+.Xil/
+core
+core.*
+
+# Generated FPGA artifacts and local tooling
+clockInfo.txt
+*.bit
+*.dcp
+*.vcd
+*.fst
+__pycache__/
+.DS_Store

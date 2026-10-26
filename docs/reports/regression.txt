@@ -1,0 +1,25 @@
+Verilator regression rerun: 2026-10-26
+Tool: Verilator 5.052
+Command: ./scripts/test.sh
+Lint: PASS (exit 0; no diagnostics)
+
+## tb_dsp
+PASS: DSP impulses, max delay/wrap, reset, bypass, clipping, feedback, DAC density/stability, UART
+- sim/tb_dsp.sv:116: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 30ms; walltime 1.162 s; speed 25.856 ms/s
+- Verilator: cpu 1.162 s on 1 threads; allocated 4 MB
+
+## tb_input
+PASS: XADC DRP, boxcar, CDC, exact sample spacing, scaling, DC rejection, saturation
+- sim/tb_input.sv:35: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 31ms; walltime 3.374 s; speed 9.117 ms/s
+- Verilator: cpu 3.373 s on 1 threads; allocated 4 MB
+
+## tb_top
+PASS: integrated pipeline cadence/deadline, button bounce/hold, five modes, reset recovery
+- sim/tb_top.sv:46: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 120ms; walltime 11.715 s; speed 10.268 ms/s
+- Verilator: cpu 11.711 s on 1 threads; allocated 4 MB

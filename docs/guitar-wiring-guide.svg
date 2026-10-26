@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120">
+<rect x="0" y="0" width="1800" height="1120" rx="0" fill="#f5f8fb" stroke="none" stroke-width="2"/>
+<text x="50" y="58" font-family="DejaVu Sans, sans-serif" font-size="36" fill="#183246" font-weight="700" text-anchor="start">Guitar → Cmod A7 → amplifier</text>
+<text x="50" y="94" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#526779" font-weight="400" text-anchor="start">USB-powered passive hookup • existing pedal bitstream • no Pmod module required</text>
+<rect x="755" y="220" width="360" height="330" rx="18" fill="#174e59" stroke="#103a44" stroke-width="2"/>
+<text x="935" y="270" font-family="DejaVu Sans, sans-serif" font-size="30" fill="#ffffff" font-weight="700" text-anchor="middle">CMOD A7-35T</text>
+<rect x="845" y="295" width="180" height="45" rx="6" fill="#d8e6e9" stroke="none" stroke-width="2"/>
+<text x="935" y="324" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#174e59" font-weight="700" text-anchor="middle">USB POWER</text>
+<rect x="865" y="365" width="140" height="105" rx="6" fill="#253541" stroke="none" stroke-width="2"/>
+<text x="935" y="406" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">Artix-7</text>
+<text x="935" y="438" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#c4e2e9" font-weight="400" text-anchor="middle">FPGA</text>
+<text x="935" y="510" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#d7e7ea" font-weight="400" text-anchor="middle">Simplified connection map</text>
+<path d="M935 220 V165 H570 V240" fill="none" stroke="#d34e50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M935 165 H1250" fill="none" stroke="#d34e50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="935" cy="165" r="6" fill="#d34e50"/>
+<text x="910" y="202" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#b43b40" font-weight="700" text-anchor="end">Pmod JA pin 6 OR 12</text>
+<text x="580" y="148" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#b43b40" font-weight="700" text-anchor="start">+3.3 V from onboard Pmod connector</text>
+<path d="M570 242 V338" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="558" y="260" width="24" height="60" rx="3" fill="#fff1cd" stroke="#9c6e21" stroke-width="2"/>
+<text x="593" y="284" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="start">R2</text>
+<text x="593" y="309" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="start">3.3 kΩ</text>
+<path d="M570 240 V242" fill="none" stroke="#d34e50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M570 338 V390" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1256 165 H1293 M1307 165 H1344" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1293 147 V183 M1307 147 V183" fill="none" stroke="#167a8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1300" y="123" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="middle">C6</text>
+<text x="1300" y="145" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="middle">100 nF</text>
+<path d="M1250 165 H1256" fill="none" stroke="#d34e50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1344 165 H1440 V190" fill="none" stroke="#536579" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1440 190 V205 M1422 205 H1458 M1428 213 H1452 M1435 221 H1445" fill="none" stroke="#536579" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1475" y="192" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#536579" font-weight="700" text-anchor="start">GND</text>
+<text x="1260" y="245" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#526779" font-weight="400" text-anchor="start">Supply decoupling</text>
+<rect x="35" y="310" width="140" height="175" rx="12" fill="#ffffff" stroke="#ccd7e1" stroke-width="2"/>
+<text x="105" y="340" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#183246" font-weight="700" text-anchor="middle">GUITAR</text>
+<text x="105" y="366" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="middle">IN jack</text>
+<text x="55" y="397" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="start">TIP</text>
+<text x="55" y="461" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#183246" font-weight="400" text-anchor="start">SLEEVE</text>
+<circle cx="175" cy="390" r="6" fill="#d68b10"/>
+<path d="M175 390 H226" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M226 390 H263 M277 390 H314" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M263 372 V408 M277 372 V408" fill="none" stroke="#167a8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="270" y="348" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="middle">C1</text>
+<text x="270" y="370" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="middle">1 µF</text>
+<path d="M314 390 H362" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M362 390 H458" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="380" y="378" width="60" height="24" rx="3" fill="#fff1cd" stroke="#9c6e21" stroke-width="2"/>
+<text x="410" y="350" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="middle">R1</text>
+<text x="410" y="370" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="middle">1 kΩ</text>
+<path d="M458 390 H755" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="570" cy="390" r="6" fill="#d68b10"/>
+<text x="742" y="371" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="end">DIP 15</text>
+<text x="775" y="396" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#ffffff" font-weight="700" text-anchor="start">IN</text>
+<path d="M570 390 V446" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M570 446 V483 M570 497 V534" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M552 483 H588 M552 497 H588" fill="none" stroke="#167a8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="595" y="483" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="start">C2</text>
+<text x="595" y="508" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="start">10 nF</text>
+<path d="M570 534 V640" fill="none" stroke="#536579" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M175 455 H195 V640" fill="none" stroke="#536579" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="240" y="555" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526779" font-weight="400" text-anchor="start">C1 blocks guitar-side DC.</text>
+<text x="240" y="584" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526779" font-weight="400" text-anchor="start">R2 sets the input bias.</text>
+<path d="M1115 390 H1142" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1142 390 H1238" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1160" y="378" width="60" height="24" rx="3" fill="#fff1cd" stroke="#9c6e21" stroke-width="2"/>
+<text x="1190" y="350" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="middle">R3</text>
+<text x="1190" y="370" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="middle">3.3 kΩ</text>
+<path d="M1238 390 H1290 H1322" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1290" cy="390" r="6" fill="#d68b10"/>
+<text x="1130" y="430" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="start">DIP 1</text>
+<text x="1095" y="396" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#ffffff" font-weight="700" text-anchor="end">OUT</text>
+<path d="M1322 390 H1418" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1340" y="378" width="60" height="24" rx="3" fill="#fff1cd" stroke="#9c6e21" stroke-width="2"/>
+<text x="1370" y="350" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="middle">R4</text>
+<text x="1370" y="370" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="middle">3.3 kΩ</text>
+<path d="M1418 390 H1490 H1516" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1490" cy="390" r="6" fill="#d68b10"/>
+<path d="M1516 390 H1553 M1567 390 H1604" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1553 372 V408 M1567 372 V408" fill="none" stroke="#167a8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1560" y="348" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="middle">C5</text>
+<text x="1560" y="370" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="middle">1 µF</text>
+<path d="M1604 390 H1650 H1695" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1650" cy="390" r="6" fill="#d68b10"/>
+<path d="M1290 390 V446" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1290 446 V483 M1290 497 V534" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1272 483 H1308 M1272 497 H1308" fill="none" stroke="#167a8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1315" y="483" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="start">C3</text>
+<text x="1315" y="508" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="start">4.7 nF</text>
+<path d="M1290 534 V640" fill="none" stroke="#536579" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1490 390 V446" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1490 446 V483 M1490 497 V534" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1472 483 H1508 M1472 497 H1508" fill="none" stroke="#167a8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1515" y="483" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="start">C4</text>
+<text x="1515" y="508" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="start">4.7 nF</text>
+<path d="M1490 534 V640" fill="none" stroke="#536579" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1650 390 V442" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1650 442 V538" fill="none" stroke="#d68b10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1638" y="460" width="24" height="60" rx="3" fill="#fff1cd" stroke="#9c6e21" stroke-width="2"/>
+<text x="1673" y="484" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="start"></text>
+<text x="1673" y="509" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="start"></text>
+<text x="1630" y="550" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="end">R5</text>
+<text x="1630" y="575" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="end">100 kΩ</text>
+<path d="M1650 538 V640" fill="none" stroke="#536579" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1695" y="310" width="85" height="175" rx="12" fill="#ffffff" stroke="#ccd7e1" stroke-width="2"/>
+<text x="1737" y="340" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183246" font-weight="700" text-anchor="middle">AMP</text>
+<text x="1737" y="365" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#183246" font-weight="400" text-anchor="middle">jack</text>
+<text x="1710" y="397" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#183246" font-weight="400" text-anchor="start">TIP</text>
+<text x="1737" y="461" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#183246" font-weight="400" text-anchor="middle">SLEEVE</text>
+<path d="M1737 485 V640" fill="none" stroke="#536579" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1200" y="683" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526779" font-weight="400" text-anchor="start">Output filter + DC blocking</text>
+<path d="M935 550 V640 M195 640 H1737" fill="none" stroke="#536579" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="950" y="576" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="700" text-anchor="start">DIP 25 · GND</text>
+<circle cx="195" cy="640" r="6" fill="#536579"/>
+<circle cx="570" cy="640" r="6" fill="#536579"/>
+<circle cx="935" cy="640" r="6" fill="#536579"/>
+<circle cx="1290" cy="640" r="6" fill="#536579"/>
+<circle cx="1490" cy="640" r="6" fill="#536579"/>
+<circle cx="1650" cy="640" r="6" fill="#536579"/>
+<circle cx="1737" cy="640" r="6" fill="#536579"/>
+<path d="M935 640 V655 M917 655 H953 M923 663 H947 M930 671 H940" fill="none" stroke="#536579" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="50" y="650" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#536579" font-weight="700" text-anchor="start">GROUND</text>
+<rect x="35" y="710" width="550" height="330" rx="12" fill="#ffffff" stroke="#d9e1e9" stroke-width="2"/>
+<text x="60" y="749" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#183246" font-weight="700" text-anchor="start">1  Wire with USB unplugged</text>
+<text x="60" y="788" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">All gray ground connections share one rail.</text>
+<text x="60" y="822" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">Use mono ¼-inch jack sockets or breakouts.</text>
+<text x="60" y="856" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">Pmod JA numbering is NOT DIP numbering.</text>
+<text x="60" y="890" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">DIP 24 is NOT a 3.3 V supply.</text>
+<text x="60" y="924" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">C1 and C5: use nonpolar film capacitors.</text>
+<text x="60" y="985" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183246" font-weight="700" text-anchor="start">Electrolytic alternative:</text>
+<text x="60" y="1015" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183246" font-weight="400" text-anchor="start">C1 + toward R1; C5 + toward R4.</text>
+<rect x="610" y="710" width="550" height="330" rx="12" fill="#ffffff" stroke="#d9e1e9" stroke-width="2"/>
+<text x="635" y="749" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#183246" font-weight="700" text-anchor="start">2  Check DC before the amp</text>
+<text x="635" y="788" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">Power via USB and load the bitstream.</text>
+<text x="635" y="822" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">Black meter lead → ground rail.</text>
+<text x="635" y="856" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">3.3 V rail → approximately 3.3 V.</text>
+<text x="635" y="890" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">DIP 15 → approximately 1.6–1.7 V.</text>
+<text x="635" y="924" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">Amp TIP → approximately 0 V, settled.</text>
+<text x="635" y="985" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183246" font-weight="700" text-anchor="start">Then connect the amp at minimum volume.</text>
+<text x="635" y="1015" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183246" font-weight="400" text-anchor="start">Start in WHITE / clean mode.</text>
+<rect x="1185" y="710" width="580" height="330" rx="12" fill="#fff5df" stroke="#ecd49a" stroke-width="2"/>
+<text x="1210" y="749" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#183246" font-weight="700" text-anchor="start">What to expect</text>
+<text x="1210" y="788" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">Basic first-listen circuit, not a buffered pedal.</text>
+<text x="1210" y="822" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">The onboard input network loads pickups:</text>
+<text x="1210" y="856" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">volume and treble may be reduced.</text>
+<text x="1210" y="890" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">Do not connect a speaker output here.</text>
+<text x="1210" y="924" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183246" font-weight="400" text-anchor="start">Mute the amp before reset / reprogramming.</text>
+<text x="1210" y="985" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183246" font-weight="700" text-anchor="start">Board already includes its ADC divider.</text>
+<text x="1210" y="1015" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#183246" font-weight="400" text-anchor="start">Do not add a second input bias resistor to GND.</text>
+<text x="35" y="1080" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526779" font-weight="400" text-anchor="start">Electrical connection guide — not a physical breadboard-hole layout. Board ports are repositioned for readability.</text>
+</svg>
